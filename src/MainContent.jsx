@@ -21,5 +21,5 @@ export default function MainContent() {
                     <Route path='/logout' element={<p>logout</p>}/>
                 </Routes>
         </div>
-    )
+    );
 }
