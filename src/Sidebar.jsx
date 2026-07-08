@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-
+ 
 export default function Sidebar() {
     const location = useLocation();
-
+ 
     const menuItems = [
         { label: 'Dashboard', path: '/dashboard' },
         { label: 'Pending Orders', path: '/pendingorders' },
@@ -10,7 +10,7 @@ export default function Sidebar() {
         { label: 'Profile Settings', path: '/profilesettings' },
         { label: 'Logout', path: '/logout' }
     ];
-
+ 
     return (
         <div style={{
             backgroundColor: '#3e3e3e',

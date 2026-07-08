@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
 
 export default function Navbar() {
     const location = useLocation();
 
-    // Check if the current route is active
     const isActive = (path) => {
         if (path === '/orders') {
             return location.pathname === '/orders' || location.pathname === '/';
@@ -50,6 +50,8 @@ export default function Navbar() {
                 <p><Link to='/menu'>Menu</Link></p>
                 <p><Link to='/orders'>Orders</Link></p>
                 <p><Link to='/profile'>Profile</Link></p>
+                </div>
         </div>
+        
     );
 }
