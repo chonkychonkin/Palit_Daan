@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import SpecialInstructions from './SpecialInstructions';
+import MenuPage from './MenuPage';
  
 export default function MainContent() {
     return (
@@ -14,7 +15,7 @@ export default function MainContent() {
                 {}
                 <Route path='/' element={<Navigate to='/orders' replace />} />
                 <Route path='/orders' element={<SpecialInstructions />} />
-                <Route path='/menu' element={<div style={{ padding: '20px' }}><h2>Menu Page</h2><p>Menu options will appear here.</p></div>} />
+                <Route path='/menu' element={<MenuPage />} />
                 <Route path='/profile' element={<div style={{ padding: '20px' }}><h2>Profile Page</h2><p>Profile information will appear here.</p></div>} />
                 <Route path='/dashboard' element={<div style={{ padding: '20px' }}><h2>Dashboard Page</h2><p>Dashboard information will appear here.</p></div>} />
                 <Route path='/pendingorders' element={<div style={{ padding: '20px' }}><h2>Pending Orders</h2><p>Pending orders will appear here.</p></div>} />
