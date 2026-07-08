@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 export default function PalitDaan() {
     return (
         <div style={{display:'flex'}}>
-            {/* <BrowserRouter> */}
+            <BrowserRouter>
                 <Navbar/>
                 <Sidebar/>
                 <MainContent/>
-            {/* </BrowserRouter> */}
+            </BrowserRouter>
         </div>
     )
 }
