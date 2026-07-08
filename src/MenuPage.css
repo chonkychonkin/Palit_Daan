@@ -1,0 +1,23 @@
+.menu-page {
+    background-color: #ff8a5c;
+    padding: 20px;
+}
+
+.header1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-btn {
+    height: 50px;
+    width: 50px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 30px;
+    justify-content: space-between;
+    margin-top: 30px;
+}

@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     const location = useLocation();
@@ -46,11 +46,10 @@ export default function Navbar() {
                 alignItems: 'center',
                 gap: '20px'
             }}>
-                <Link to='/' style={linkStyle('/')}>Home</Link>
-                <Link to='/menu' style={linkStyle('/menu')}>Menu</Link>
-                <Link to='/orders' style={linkStyle('/orders')}>Orders</Link>
-                <Link to='/profile' style={linkStyle('/profile')}>Profile</Link>
-            </div>
+                <h3>Navbar</h3>
+                <p><Link to='/menu'>Menu</Link></p>
+                <p><Link to='/orders'>Orders</Link></p>
+                <p><Link to='/profile'>Profile</Link></p>
         </div>
     );
 }
