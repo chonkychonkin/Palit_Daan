@@ -11,7 +11,7 @@ export default function MainContent() {
             boxSizing: 'border-box'
         }}>
             <Routes>
-                {/* Default to orders page so it shows up immediately */}
+                {}
                 <Route path='/' element={<Navigate to='/orders' replace />} />
                 <Route path='/orders' element={<SpecialInstructions />} />
                 <Route path='/menu' element={<div style={{ padding: '20px' }}><h2>Menu Page</h2><p>Menu options will appear here.</p></div>} />

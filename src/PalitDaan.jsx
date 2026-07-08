@@ -11,7 +11,7 @@ export default function PalitDaan() {
                 flexDirection: 'column',
                 minHeight: '100vh',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
-                backgroundColor: '#ffa07a' // Coral/peach page background matching the canvas
+                backgroundColor: '#ffa07a' 
             }}>
                 <Navbar />
                 <div style={{ display: 'flex', flex: 1 }}>

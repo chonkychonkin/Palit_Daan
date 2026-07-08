@@ -7,9 +7,8 @@ export default function SpecialInstructions() {
     const [eggs, setEggs] = useState(false);
     const [others, setOthers] = useState(false);
 
-    // Dynamic button styling helper
     const getAllergenButtonStyle = (isSelected) => ({
-        backgroundColor: isSelected ? '#ffa366' : '#ececec',
+        backgroundColor: isSelected ? '#ffa366' : '#ececec  ',
         color: isSelected ? '#ffffff' : '#555555',
         border: 'none',
         borderRadius: '12px',
@@ -61,7 +60,7 @@ export default function SpecialInstructions() {
             margin: '0 auto',
             flexWrap: 'wrap'
         }}>
-            {/* Left Column: Input Form */}
+            {}
             <div style={{
                 flex: '2 1 600px',
                 display: 'flex',
@@ -171,7 +170,7 @@ export default function SpecialInstructions() {
                 </div>
             </div>
 
-            {/* Right Column: Order Summary Panel */}
+            {}
             <div style={{
                 flex: '1 1 320px',
                 display: 'flex',
