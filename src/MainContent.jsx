@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import MenuPage from './MenuPage';
 
 export default function MainContent() {
     return (
@@ -10,7 +11,7 @@ export default function MainContent() {
             }}>
                 <h3>MainContent</h3>
                 <Routes>
-                    <Route path='/menu' element={<p>menu</p>}/>
+                    <Route path='/menu' element={<MenuPage/>}/>
                     <Route path='/orders' element={<p>orders</p>}/>
                     <Route path='/profile' element={<p>profile</p>}/>
                     <Route path='/dashboard' element={<p>dashboard</p>}/>
