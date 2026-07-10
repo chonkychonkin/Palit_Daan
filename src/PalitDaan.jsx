@@ -19,6 +19,7 @@ export default function PalitDaan() {
                 
                     <Login>
                         <Login>
+                <RegisterPage>
                 <Navbar />
                 <div style={{ display: 'flex', flex: 1 }}>
                     <Sidebar />
@@ -27,6 +28,7 @@ export default function PalitDaan() {
                         </Login>
                     </Login>
                 
+                </RegisterPage>
             </div>
         </BrowserRouter>
     );
