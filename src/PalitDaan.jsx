@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import MainContent from './MainContent';
 import RegisterPage from './RegisterPage';
 import { BrowserRouter } from 'react-router-dom';
+import SignUp from './Signup';
+import Login from './Login';
  
 export default function PalitDaan() {
     return (
@@ -14,13 +16,19 @@ export default function PalitDaan() {
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 backgroundColor: '#ffa07a'
             }}>
-                {/* <RegisterPage> */}
+                
+                    <Login>
+                        <Login>
+                <RegisterPage>
                 <Navbar />
                 <div style={{ display: 'flex', flex: 1 }}>
                     <Sidebar />
                     <MainContent />
                 </div>
-                {/* </RegisterPage> */}
+                        </Login>
+                    </Login>
+                
+                </RegisterPage>
             </div>
         </BrowserRouter>
     );

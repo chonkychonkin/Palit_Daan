@@ -117,7 +117,7 @@ const styles = {
     page: {
         minHeight: '100vh',
         width: '100%',
-        backgroundColor: '#E67E30',
+        backgroundColor: '#F96F20',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
