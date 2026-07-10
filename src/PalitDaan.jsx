@@ -14,13 +14,13 @@ export default function PalitDaan() {
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 backgroundColor: '#ffa07a'
             }}>
-                <RegisterPage>
+                {/* <RegisterPage> */}
                 <Navbar />
                 <div style={{ display: 'flex', flex: 1 }}>
                     <Sidebar />
                     <MainContent />
                 </div>
-                </RegisterPage>
+                {/* </RegisterPage> */}
             </div>
         </BrowserRouter>
     );
