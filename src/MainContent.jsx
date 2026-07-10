@@ -7,7 +7,6 @@ export default function MainContent() {
         <div style={{
             backgroundColor: '#ffffff',
             flex: 1,
-            padding: '40px',
             minHeight: 'calc(100vh - 74px)',
             boxSizing: 'border-box'
         }}>
