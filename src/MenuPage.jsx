@@ -1,7 +1,9 @@
 import FoodCard from "./FoodCard";
+import { useNavigate } from "react-router-dom";
 import './MenuPage.css';
 
 function MenuPage() {
+  const navigate = useNavigate();
   const foods = [
     {
       id: 1,
@@ -27,7 +29,7 @@ function MenuPage() {
   ];
 
   const handleAddToCart = (food) => {
-    console.log(`${food.name} added to cart`);
+    navigate('/special-instructions', { state: { food } });
   };
 
   return (
