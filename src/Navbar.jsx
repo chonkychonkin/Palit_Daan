@@ -46,7 +46,6 @@ export default function Navbar() {
                 alignItems: 'center',
                 gap: '20px'
             }}>
-                <h3>Navbar</h3>
                 <p><Link to='/menu'>Menu</Link></p>
                 <p><Link to='/orders'>Orders</Link></p>
                 <p><Link to='/profile'>Profile</Link></p>

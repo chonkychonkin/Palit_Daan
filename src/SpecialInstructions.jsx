@@ -55,6 +55,7 @@ export default function SpecialInstructions() {
 
     return (
         <div style={{
+            padding: '40px',
             display: 'flex',
             gap: '40px',
             maxWidth: '1200px',
