@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import SpecialInstructions from './SpecialInstructions';
+import { Routes, Route } from 'react-router-dom';
+import MenuPage from './MenuPage';
 
 export default function MainContent() {
     return (
