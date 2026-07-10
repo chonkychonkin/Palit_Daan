@@ -1,70 +1,326 @@
-# Getting Started with Create React App
+# 🚶‍♀️ Palit Daan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Project Description
 
-## Available Scripts
+**Palit Daan** is a React-based web application that helps users navigate and explore alternative routes. The project aims to provide a simple, responsive, and user-friendly interface while demonstrating modern web development practices using React and collaborative development through GitHub.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* React
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* React Router DOM
+* Node.js
+* npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+# 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1. Clone the Repository
 
-### `npm run build`
+```bash
+git clone https://github.com/chonkychonkin/Palit_Daan.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Navigate to the Project Folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd Palit_Daan
+```
 
-### `npm run eject`
+Verify you're in the correct directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+ls
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You should see files similar to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```text
+package.json
+src/
+public/
+README.md
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 3. Install Dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This installs all required packages listed in `package.json`.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 4. Run the Development Server
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application will open at:
 
-### Making a Progressive Web App
+```text
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+# 🌱 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Before making any changes, always pull the latest version of the project.
 
-### Deployment
+```bash
+git pull origin main
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Create a new branch for your feature or fix.
 
-### `npm run build` fails to minify
+```bash
+git checkout -b feature/your-feature-name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make your changes and save your files.
+
+Stage your changes.
+
+```bash
+git add .
+```
+
+Commit your changes.
+
+```bash
+git commit -m "Describe your changes"
+```
+
+Push your branch to GitHub.
+
+```bash
+git push origin feature/your-feature-name
+```
+
+Finally, create a Pull Request for review.
+
+---
+
+# 📂 Project Structure
+
+```text
+Palit_Daan/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   └── ...
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+---
+
+# 🐞 Troubleshooting
+
+## "npm" is not recognized
+
+Make sure Node.js is installed.
+
+Check your installation:
+
+```bash
+node -v
+npm -v
+```
+
+If either command is not recognized, install Node.js before continuing.
+
+---
+
+## package.json cannot be found
+
+You are probably in the wrong folder.
+
+Check your current directory.
+
+```bash
+pwd
+```
+
+Navigate to the project folder.
+
+```bash
+cd Palit_Daan
+```
+
+Verify you're in the correct directory.
+
+```bash
+ls
+```
+
+---
+
+## Missing Dependencies
+
+If you receive errors like:
+
+```text
+Module not found
+Cannot resolve module
+```
+
+Run:
+
+```bash
+npm install
+```
+
+---
+
+## Missing React Router
+
+If you receive:
+
+```text
+Cannot resolve 'react-router-dom'
+```
+
+Install it manually.
+
+```bash
+npm install react-router-dom
+```
+
+---
+
+## Missing React Icons
+
+If you receive:
+
+```text
+Cannot resolve 'react-icons'
+```
+
+Install it.
+
+```bash
+npm install react-icons
+```
+
+---
+
+## Reinstall All Dependencies
+
+If packages become corrupted or installation fails:
+
+Delete existing dependencies.
+
+```bash
+rm -rf node_modules
+```
+
+Delete the lock file.
+
+```bash
+rm package-lock.json
+```
+
+Install everything again.
+
+```bash
+npm install
+```
+
+---
+
+## Development Server Will Not Start
+
+Try restarting it.
+
+```bash
+npm start
+```
+
+If another application is using port 3000, stop the other process or allow React to use a different port when prompted.
+
+---
+
+# 📌 Common Git Commands
+
+Clone the repository.
+
+```bash
+git clone https://github.com/chonkychonkin/Palit_Daan.git
+```
+
+Go to the project.
+
+```bash
+cd Palit_Daan
+```
+
+Check the current branch.
+
+```bash
+git branch
+```
+
+Check project status.
+
+```bash
+git status
+```
+
+Pull the latest changes.
+
+```bash
+git pull origin main
+```
+
+Create a new branch.
+
+```bash
+git checkout -b feature/branch-name
+```
+
+Stage changes.
+
+```bash
+git add .
+```
+
+Commit changes.
+
+```bash
+git commit -m "Your commit message"
+```
+
+Push your branch.
+
+```bash
+git push origin feature/branch-name
+```
+
+---
+
+# 👥 Team
+
+Developed collaboratively by the **Palit Daan** development team.
+
+---
+
+# 📄 License
+
+This project is intended for educational and academic purposes.
