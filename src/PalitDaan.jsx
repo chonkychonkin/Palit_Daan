@@ -1,6 +1,7 @@
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MainContent from './MainContent';
+import RegisterPage from './RegisterPage';
 import { BrowserRouter } from 'react-router-dom';
 // import SignUp from './Signup';
 // import Login from './Login';
