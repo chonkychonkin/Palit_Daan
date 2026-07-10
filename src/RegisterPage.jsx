@@ -73,7 +73,7 @@ export default function Register() {
                             value={form.email}
                             onChange={handleChange}
                             style={styles.input}
-                            placeholder="you@cit.edu"
+                            placeholder="example.email@cit.edu"
                             required
                         />
                     </label>
