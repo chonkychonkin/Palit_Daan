@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.css';
 
 export default function Navbar() {
     const location = useLocation();
@@ -10,46 +11,16 @@ export default function Navbar() {
         return location.pathname === path;
     };
 
-    const linkStyle = (path) => ({
-        color: 'white',
-        textDecoration: 'none',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        padding: '6px 16px',
-        border: isActive(path) ? '2px solid white' : '2px solid transparent',
-        borderRadius: '4px',
-        transition: 'all 0.2s ease',
-    });
-
     return (
-        <div style={{
-            backgroundColor: '#f5821f',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '15px 40px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-            zIndex: 10
-        }}>
-            <div style={{
-                color: 'white',
-                fontSize: '28px',
-                fontWeight: '800',
-                letterSpacing: '1px',
-                cursor: 'pointer'
-            }}>
+        <div className="navbar">
+            <div className="navbar-brand">
                 PALIT DAAN
             </div>
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '20px'
-            }}>
-                <h3>Navbar</h3>
-                <p><Link to='/menu'>Menu</Link></p>
-                <p><Link to='/orders'>Orders</Link></p>
-                <p><Link to='/profile'>Profile</Link></p>
-        </div>
+            <div className="navbar-links">
+                <Link className={`navbar-link ${isActive('/menu') ? 'active' : ''}`} to="/menu">Menu</Link>
+                <Link className={`navbar-link ${isActive('/orders') ? 'active' : ''}`} to="/orders">Orders</Link>
+                <Link className={`navbar-link ${isActive('/profile') ? 'active' : ''}`} to="/profile">Profile</Link>
+            </div>
         </div>
     );
 }

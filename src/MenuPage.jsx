@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import FoodCard from "./FoodCard";
+import { useNavigate } from "react-router-dom";
 import './MenuPage.css';
 
 function MenuPage() {
@@ -9,16 +9,22 @@ function MenuPage() {
       id: 1,
       name: "Hotdog",
       price: 30,
+      image: "🌭",
+      description: "Savory and grilled to perfection.",
     },
     {
       id: 2,
       name: "Pancake",
       price: 30,
+      image: "🥞",
+      description: "Soft, fluffy, and perfect for breakfast.",
     },
     {
       id: 3,
       name: "Tortang Talong",
       price: 30,
+      image: "🍆",
+      description: "A comforting local favorite with rich flavor.",
     }
   ];
 
@@ -28,28 +34,30 @@ function MenuPage() {
 
   return (
     <div className="menu-page">
-      <div className="header1">
-        <div className="title-container">
+      <div className="menu-shell">
+        <div className="header1">
+          <div className="title-container">
+            <span className="menu-badge">Featured Picks</span>
             <h1>Mga Pagkaon</h1>
             <h5>Tan-awa unsa imo ganahan paliton.</h5>
-        </div>
-        <div>
-            <button className="cart-btn"> 🛒 </button>
+          </div>
+          <button className="cart-btn" aria-label="View cart">
+            🛒
+          </button>
         </div>
 
-        
-      </div>
-
-      <div className="food-grid">
-        {foods.map((food) => (
-          <FoodCard
-            key={food.id}
-            name={food.name}
-            image={food.image}
-            price={food.price}
-            onAddToCart={() => handleAddToCart(food)}
-          />
-        ))}
+        <div className="food-grid">
+          {foods.map((food) => (
+            <FoodCard
+              key={food.id}
+              name={food.name}
+              image={food.image}
+              description={food.description}
+              price={food.price}
+              onAddToCart={() => handleAddToCart(food)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

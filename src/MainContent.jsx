@@ -1,5 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MenuPage from './MenuPage';
+import SpecialInstructions from './SpecialInstructions';
+import ProfileSettings from './ProfileSettings';
 
 export default function MainContent() {
     return (
@@ -20,7 +22,7 @@ export default function MainContent() {
                 <Route path='/dashboard' element={<div style={{ padding: '20px' }}><h2>Dashboard Page</h2><p>Dashboard information will appear here.</p></div>} />
                 <Route path='/pendingorders' element={<div style={{ padding: '20px' }}><h2>Pending Orders</h2><p>Pending orders will appear here.</p></div>} />
                 <Route path='/orderhistory' element={<div style={{ padding: '20px' }}><h2>Order History</h2><p>Order history details will appear here.</p></div>} />
-                <Route path='/profilesettings' element={<div style={{ padding: '20px' }}><h2>Profile Settings</h2><p>Profile configuration settings.</p></div>} />
+                <Route path='/profilesettings' element={<ProfileSettings />} />
                 <Route path='/logout' element={<div style={{ padding: '20px' }}><h2>Logged Out</h2><p>You have been successfully logged out.</p></div>} />
             </Routes>
         </div>

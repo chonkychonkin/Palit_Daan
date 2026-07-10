@@ -16,27 +16,9 @@ export default function SpecialInstructions() {
     const [eggs, setEggs] = useState(false);
     const [others, setOthers] = useState(false);
 
-<<<<<<< Updated upstream
-    const getAllergenButtonStyle = (isSelected) => ({
-        backgroundColor: isSelected ? '#ffa366' : '#ececec  ',
-        color: isSelected ? '#ffffff' : '#555555',
-        border: 'none',
-        borderRadius: '12px',
-        padding: '12px 24px',
-        fontWeight: 'bold',
-        fontSize: '15px',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        transition: 'all 0.2s ease',
-        boxShadow: isSelected ? '0 4px 6px rgba(255,163,102,0.25)' : 'none'
-    });
-=======
     function handleCommentChange(e) {
         setComment(e.target.value);
     }
->>>>>>> Stashed changes
 
     function handleNutsClick() {
         setNuts(!nuts);
@@ -79,40 +61,11 @@ export default function SpecialInstructions() {
     }
 
     return (
-<<<<<<< Updated upstream
-        <div style={{
-            display: 'flex',
-            gap: '40px',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            flexWrap: 'wrap'
-        }}>
-            {}
-            <div style={{
-                flex: '2 1 600px',
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <h1 style={{
-                    fontSize: '42px',
-                    fontWeight: '800',
-                    color: '#111111',
-                    margin: '0 0 8px 0'
-                }}>
-                    Special Instructions
-                </h1>
-                <p style={{
-                    fontSize: '16px',
-                    color: '#666666',
-                    margin: '0 0 35px 0'
-                }}>
-=======
         <div className="si-container">
             {/* Left Column: Input Form */}
             <div className="si-left">
                 <h1 className="si-title">Special Instructions</h1>
                 <p className="si-subtitle">
->>>>>>> Stashed changes
                     Add comments or allergen notes before confirming your order
                 </p>
 
@@ -167,28 +120,9 @@ export default function SpecialInstructions() {
                 </div>
             </div>
 
-<<<<<<< Updated upstream
-            {}
-            <div style={{
-                flex: '1 1 320px',
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <div style={{
-                    backgroundColor: '#f2f2f2',
-                    borderRadius: '16px',
-                    padding: '30px 24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    minHeight: '400px',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
-                }}>
-=======
             {/* Right Column: Order Summary Panel */}
             <div className="si-right">
                 <div className="si-summary-card">
->>>>>>> Stashed changes
                     <div>
                         <h2 className="si-summary-heading">Order Summary</h2>
 
