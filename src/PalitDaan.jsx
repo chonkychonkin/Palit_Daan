@@ -17,18 +17,15 @@ export default function PalitDaan() {
                 backgroundColor: '#ffa07a'
             }}>
                 
-                    <Login>
-                        <Login>
-                <RegisterPage>
-                <Navbar />
-                <div style={{ display: 'flex', flex: 1 }}>
-                    <Sidebar />
-                    <MainContent />
-                </div>
-                        </Login>
-                    </Login>
-                
-                </RegisterPage>
+                    {/* <RegisterPage> */}
+                        {/* <Login> */}
+                            <Navbar />
+                                <div style={{ display: 'flex', flex: 1 }}>
+                                    <Sidebar />
+                                    <MainContent />
+                                </div>
+                        {/* </Login> */}
+                {/* </RegisterPage> */}
             </div>
         </BrowserRouter>
     );
