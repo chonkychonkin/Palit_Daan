@@ -1,4 +1,4 @@
-import './FoodCard.css';
+import '../css/FoodCard.css';
 
 function FoodCard({ name, price, image, description, onAddToCart }) {
   return (

@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import loginlogo from './loginlogo.png';
-import logocit from './logocit.png';
+import loginlogo from '../assets/loginlogo.png';
+import logocit from '../assets/logocit.png';
 
-export default function Login() {
+export default function SignUp() {
     const [form, setForm] = useState({
         idNumber: '',
+        email: '',
+        firstName: '',
+        lastName: '',
         password: '',
+        confirmPassword: '',
     });
 
     function handleChange(e) {
@@ -15,17 +19,16 @@ export default function Login() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('Login submitted:', form);
-        // TODO: call your login API here
+        console.log('Sign up submitted:', form);
+        // TODO: call your register API here
     }
 
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <div style={styles.logocitWrap}>
                     <img src={logocit} alt="CIT-U logocit" style={styles.logocit} />
-                </div>
-                <h1 style={styles.heading}>Login</h1>
+                <h1 style={styles.heading}>Sign up</h1>  
+                <div style={styles.headerSpacer} />
             </div>
 
             <div style={styles.content}>
@@ -43,6 +46,43 @@ export default function Login() {
                     </label>
 
                     <label style={styles.label}>
+                        Email
+                        <input
+                            type="email"
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            style={styles.input}
+                            placeholder="Enter email address"
+                            required
+                        />
+                    </label>
+
+                    <label style={styles.label}>
+                        First Name
+                        <input
+                            name="firstName"
+                            value={form.firstName}
+                            onChange={handleChange}
+                            style={styles.input}
+                            placeholder="Enter your first name"
+                            required
+                        />
+                    </label>
+
+                    <label style={styles.label}>
+                        Last Name
+                        <input
+                            name="lastName"
+                            value={form.lastName}
+                            onChange={handleChange}
+                            style={styles.input}
+                            placeholder="Enter your last name"
+                            required
+                        />
+                    </label>
+
+                    <label style={styles.label}>
                         Password
                         <input
                             type="password"
@@ -55,13 +95,27 @@ export default function Login() {
                         />
                     </label>
 
+                    <label style={styles.label}>
+                        Confirm Password
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            value={form.confirmPassword}
+                            onChange={handleChange}
+                            style={styles.input}
+                            placeholder="Confirm your password"
+                            required
+                        />
+                    </label>
+
                     <div style={styles.buttonRow}>
-                        <button type="submit" style={styles.submitButton} aria-label="Log in">→</button>
+                        <button type="submit" style={styles.submitButton}>Sign up</button>
                     </div>
                 </form>
 
                 <div style={styles.imageCard}>
                     <img src={loginlogo} alt="CIT-U canteen" style={styles.image} />
+                    <p style={styles.imagePlaceholder}></p>
                 </div>
             </div>
         </div>
@@ -99,11 +153,26 @@ const styles = {
         width: '242px',
         height: '171px',
     },
+    logocitPlaceholder: {
+        width: '64px',
+        height: '64px',
+        borderRadius: '50%',
+        backgroundColor: '#FFFFFF',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '9px',
+        fontWeight: 700,
+        color: '#999',
+    },
+    headerSpacer: {
+        width: '64px',
+    },
     content: {
         display: 'flex',
         justifyContent: 'center',
         gap: '30px',
-        alignItems: 'center', 
+        alignItems: 'stretch',
         flexWrap: 'wrap',
     },
     formCard: {
@@ -111,6 +180,7 @@ const styles = {
         borderRadius: '20px',
         padding: '26px 30px',
         width: '300px',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: '14px',
@@ -140,18 +210,14 @@ const styles = {
         marginTop: '6px',
     },
     submitButton: {
-        backgroundColor: '#D6566A',
+        backgroundColor: '#CF455C',
         color: '#FFFFFF',
         border: 'none',
-        width: '42px',
-        height: '42px',
-        borderRadius: '50%',
+        padding: '10px 28px',
+        borderRadius: '999px',
         fontWeight: 700,
-        fontSize: '16px',
+        fontSize: '14px',
         cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     imageCard: {
         width: '300px',
@@ -170,5 +236,11 @@ const styles = {
         height: '100%',
         objectFit: 'cover',
         borderRadius: '12px',
+    },
+    imagePlaceholder: {
+        color: '#AAAAAA',
+        fontSize: '13px',
+        textAlign: 'center',
+        margin: 0,
     },
 };

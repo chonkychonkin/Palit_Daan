@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import loginlogo from './loginlogo.png';
-import logocit from './logocit.png';
+import { Link, useNavigate } from 'react-router-dom';
+import loginlogo from '../assets/loginlogo.png';
+import logocit from '../assets/logocit.png';
 
-export default function SignUp() {
+export default function Login() {
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         idNumber: '',
-        email: '',
-        firstName: '',
-        lastName: '',
         password: '',
-        confirmPassword: '',
     });
 
     function handleChange(e) {
@@ -19,16 +17,18 @@ export default function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('Sign up submitted:', form);
-        // TODO: call your register API here
+        console.log('Login submitted:', form);
+        // TODO: call your login API here
+        navigate('/app');
     }
 
     return (
         <div style={styles.page}>
             <div style={styles.header}>
+                <div style={styles.logocitWrap}>
                     <img src={logocit} alt="CIT-U logocit" style={styles.logocit} />
-                <h1 style={styles.heading}>Sign up</h1>  
-                <div style={styles.headerSpacer} />
+                </div>
+                <h1 style={styles.heading}>Login</h1>
             </div>
 
             <div style={styles.content}>
@@ -46,43 +46,6 @@ export default function SignUp() {
                     </label>
 
                     <label style={styles.label}>
-                        Email
-                        <input
-                            type="email"
-                            name="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            style={styles.input}
-                            placeholder="Enter email address"
-                            required
-                        />
-                    </label>
-
-                    <label style={styles.label}>
-                        First Name
-                        <input
-                            name="firstName"
-                            value={form.firstName}
-                            onChange={handleChange}
-                            style={styles.input}
-                            placeholder="Enter your first name"
-                            required
-                        />
-                    </label>
-
-                    <label style={styles.label}>
-                        Last Name
-                        <input
-                            name="lastName"
-                            value={form.lastName}
-                            onChange={handleChange}
-                            style={styles.input}
-                            placeholder="Enter your last name"
-                            required
-                        />
-                    </label>
-
-                    <label style={styles.label}>
                         Password
                         <input
                             type="password"
@@ -95,27 +58,13 @@ export default function SignUp() {
                         />
                     </label>
 
-                    <label style={styles.label}>
-                        Confirm Password
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            value={form.confirmPassword}
-                            onChange={handleChange}
-                            style={styles.input}
-                            placeholder="Confirm your password"
-                            required
-                        />
-                    </label>
-
                     <div style={styles.buttonRow}>
-                        <button type="submit" style={styles.submitButton}>Sign up</button>
+                        <button type="submit" style={styles.submitButton} aria-label="Log in">→</button>
                     </div>
                 </form>
 
                 <div style={styles.imageCard}>
                     <img src={loginlogo} alt="CIT-U canteen" style={styles.image} />
-                    <p style={styles.imagePlaceholder}></p>
                 </div>
             </div>
         </div>
@@ -153,26 +102,11 @@ const styles = {
         width: '242px',
         height: '171px',
     },
-    logocitPlaceholder: {
-        width: '64px',
-        height: '64px',
-        borderRadius: '50%',
-        backgroundColor: '#FFFFFF',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '9px',
-        fontWeight: 700,
-        color: '#999',
-    },
-    headerSpacer: {
-        width: '64px',
-    },
     content: {
         display: 'flex',
         justifyContent: 'center',
         gap: '30px',
-        alignItems: 'stretch',
+        alignItems: 'center', 
         flexWrap: 'wrap',
     },
     formCard: {
@@ -180,7 +114,6 @@ const styles = {
         borderRadius: '20px',
         padding: '26px 30px',
         width: '300px',
-        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: '14px',
@@ -210,14 +143,18 @@ const styles = {
         marginTop: '6px',
     },
     submitButton: {
-        backgroundColor: '#CF455C',
+        backgroundColor: '#D6566A',
         color: '#FFFFFF',
         border: 'none',
-        padding: '10px 28px',
-        borderRadius: '999px',
+        width: '42px',
+        height: '42px',
+        borderRadius: '50%',
         fontWeight: 700,
-        fontSize: '14px',
+        fontSize: '16px',
         cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     imageCard: {
         width: '300px',
@@ -236,11 +173,5 @@ const styles = {
         height: '100%',
         objectFit: 'cover',
         borderRadius: '12px',
-    },
-    imagePlaceholder: {
-        color: '#AAAAAA',
-        fontSize: '13px',
-        textAlign: 'center',
-        margin: 0,
     },
 };

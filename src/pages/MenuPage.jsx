@@ -1,6 +1,6 @@
-import FoodCard from "./FoodCard";
+import FoodCard from "../components/FoodCard";
 import { useNavigate } from "react-router-dom";
-import './MenuPage.css';
+import '../css/MenuPage.css';
 
 function MenuPage() {
   const navigate = useNavigate();

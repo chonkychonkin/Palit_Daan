@@ -1,7 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import MenuPage from './MenuPage';
-import SpecialInstructions from './SpecialInstructions';
-import ProfileSettings from './ProfileSettings';
+import MenuPage from '../pages/MenuPage';
+import SpecialInstructions from '../pages/SpecialInstructions';
+import ProfileSettings from '../pages/ProfileSettings';
+import Login from '../pages/Login';
 
 export default function MainContent() {
     return (
@@ -14,7 +15,8 @@ export default function MainContent() {
         }}>
             <Routes>
                 {}
-                <Route path='/' element={<Navigate to='/dashboard' replace />} />
+                {/* <Route path='/' element={<Navigate to='/dashboard' replace />} /> */}
+                <Route path='/' element={<Login />} />
                 <Route path='/orders' element={<div style={{ padding: '20px' }}><h2>Dashboard Page</h2><p>No orders for now.</p></div>} />
                 <Route path='/special-instructions' element={<SpecialInstructions />} />
                 <Route path='/menu' element={<MenuPage />} />
