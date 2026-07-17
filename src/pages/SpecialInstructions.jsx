@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import './SpecialInstructions.css';
+import '../css/SpecialInstructions.css';
 
 export default function SpecialInstructions() {
     const location = useLocation();

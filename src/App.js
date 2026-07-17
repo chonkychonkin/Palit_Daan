@@ -1,9 +1,12 @@
-import './App.css';
-import PalitDaan from './PalitDaan';
+import './css/App.css';
+import { BrowserRouter } from 'react-router-dom';
+import PalitDaan from './layouts/PalitDaan';
 
 function App() {
   return (
-    <PalitDaan />
+    <BrowserRouter>
+      <PalitDaan />
+    </BrowserRouter>
   );
 }
 

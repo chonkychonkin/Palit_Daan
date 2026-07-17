@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../utils/auth';
 
 export default function Register() {
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         name: '',
         studentId: '',
@@ -9,15 +11,23 @@ export default function Register() {
         password: '',
         confirmPassword: '',
     });
+    const [error, setError] = useState('');
 
     function handleChange(e) {
         setForm({ ...form, [e.target.name]: e.target.value });
+        setError('');
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('Register form submitted:', form);
-        // TODO: call your register API here
+        const result = registerUser(form);
+
+        if (!result.success) {
+            setError(result.message);
+            return;
+        }
+
+        navigate('/login');
     }
 
     return (
