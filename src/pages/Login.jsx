@@ -19,7 +19,7 @@ export default function Login() {
         e.preventDefault();
         console.log('Login submitted:', form);
         // TODO: call your login API here
-        navigate('/app');
+        navigate('/dashboard');
     }
 
     return (

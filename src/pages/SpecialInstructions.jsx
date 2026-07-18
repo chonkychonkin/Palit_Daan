@@ -1,9 +1,10 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../css/SpecialInstructions.css';
 
 export default function SpecialInstructions() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     var food = { name: 'Hotdog', price: 30 };
     if (location.state && location.state.food) {
@@ -37,7 +38,25 @@ export default function SpecialInstructions() {
     }
 
     function handleConfirmOrder() {
-        // puhon nani
+        const allergens = [];
+        if (nuts) allergens.push('Nuts');
+        if (dairy) allergens.push('Dairy');
+        if (eggs) allergens.push('Eggs');
+        if (others) allergens.push('Others');
+
+        const cartItem = {
+            id: Date.now(), // Unique ID for cart item
+            food: food,
+            comment: comment,
+            allergens: allergens,
+            quantity: 1
+        };
+
+        const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        existingCart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(existingCart));
+
+        navigate('/menu');
     }
 
     var nutsClass = 'si-allergen-btn';
@@ -142,7 +161,7 @@ export default function SpecialInstructions() {
                         </div>
 
                         <button onClick={handleConfirmOrder} className="si-confirm-btn">
-                            Confirm Order
+                            Add to Cart
                         </button>
                     </div>
                 </div>

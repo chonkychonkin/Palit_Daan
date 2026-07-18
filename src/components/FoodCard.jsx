@@ -4,9 +4,7 @@ function FoodCard({ name, price, image, description, onAddToCart }) {
   return (
     <div className='foodcard-grid'>
       <div className="food-card">
-        <div className="food-image" aria-label={`${name} illustration`}>
-          {image}
-        </div>
+        <img src={image} alt={name} className="food-image" />
         <div className="food-info">
           <h3>{name}</h3>
           <p className="food-description">{description}</p>
