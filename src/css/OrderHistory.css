@@ -1,25 +1,25 @@
-.oh-container {
+.history-container {
     padding: 20px;
     font-family: system-ui, -apple-system, sans-serif;
     color: #333;
 }
 
-.oh-header {
+.history-header {
     margin-bottom: 30px;
 }
 
-.oh-header h1 {
+.history-header h1 {
     font-size: 2.2rem;
     font-weight: 800;
     margin: 0 0 5px 0;
 }
 
-.oh-header p {
+.history-header p {
     margin: 0;
     color: #666;
 }
 
-.oh-empty-state {
+.history-empty-state {
     text-align: center;
     padding: 60px 20px;
     background: #fff;
@@ -27,27 +27,27 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.oh-empty-state p {
+.history-empty-state p {
     font-size: 1.1rem;
     color: #666;
     margin: 0;
 }
 
 /* Table styling matching mockup */
-.oh-table-wrapper {
+.history-table-wrapper {
     background: white;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.oh-table {
+.history-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 1rem;
 }
 
-.oh-table th {
+.history-table th {
     background-color: #f5821f;
     color: white;
     text-align: left;
@@ -56,28 +56,28 @@
     font-size: 1.05rem;
 }
 
-.oh-table td {
+.history-table td {
     padding: 14px 20px;
     border-bottom: 1px solid #f2f2f2;
     color: #333;
     font-weight: 500;
 }
 
-.oh-table tbody tr:hover {
+.history-table tbody tr:hover {
     background-color: #fafafa;
 }
 
-.oh-order-id-col {
+.history-order-id-col {
     font-weight: 800;
     color: #1a1a1a;
 }
 
-.oh-amount-col {
+.history-amount-col {
     font-weight: 700;
 }
 
 /* Completed status badge */
-.oh-status-badge {
+.history-status-badge {
     background-color: #c2f0d5;
     color: #198754;
     padding: 6px 12px;
@@ -88,7 +88,7 @@
 }
 
 /* Action button matching mockup */
-.oh-view-btn {
+.history-view-btn {
     background-color: #ffd8bf;
     color: #f5821f;
     border: none;
@@ -100,13 +100,13 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.oh-view-btn:hover {
+.history-view-btn:hover {
     background-color: #f5821f;
     color: white;
 }
 
 /* Receipt Modal Styles */
-.oh-modal-overlay {
+.history-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -119,7 +119,7 @@
     z-index: 999;
 }
 
-.oh-modal-card {
+.history-modal-card {
     background: white;
     width: 90%;
     max-width: 450px;
@@ -134,7 +134,7 @@
     to { transform: scale(1); opacity: 1; }
 }
 
-.oh-modal-header {
+.history-modal-header {
     background-color: #f5821f;
     color: white;
     padding: 16px 24px;
@@ -143,14 +143,14 @@
     align-items: center;
 }
 
-.oh-modal-header h2 {
+.history-modal-header h2 {
     margin: 0;
     font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 1px;
 }
 
-.oh-modal-close {
+.history-modal-close {
     background: none;
     border: none;
     color: white;
@@ -160,7 +160,7 @@
     padding: 0;
 }
 
-.oh-receipt-body {
+.history-receipt-body {
     padding: 24px;
     display: flex;
     flex-direction: column;

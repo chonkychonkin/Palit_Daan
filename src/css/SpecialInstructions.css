@@ -1,4 +1,4 @@
-.si-container {
+.special-instructions-container {
     padding: 40px;
     display: flex;
     gap: 40px;
@@ -7,46 +7,46 @@
     flex-wrap: wrap;
 }
 
-.si-left {
+.special-instructions-left {
     flex: 2 1 600px;
     display: flex;
     flex-direction: column;
 }
 
-.si-title {
+.special-instructions-title {
     font-size: 42px;
     font-weight: 800;
     color: #111111;
     margin: 0 0 8px 0;
 }
 
-.si-subtitle {
+.special-instructions-subtitle {
     font-size: 16px;
     color: #666666;
     margin: 0 0 35px 0;
 }
 
-.si-section-title {
+.special-instructions-section-title {
     font-size: 20px;
     font-weight: 700;
     color: #222222;
     margin: 0 0 15px 0;
 }
 
-.si-section-title-spaced {
+.special-instructions-section-title-spaced {
     font-size: 20px;
     font-weight: 700;
     color: #222222;
     margin: 35px 0 5px 0;
 }
 
-.si-hint {
+.special-instructions-hint {
     font-size: 14px;
     color: #666666;
     margin: 0 0 18px 0;
 }
 
-.si-textarea {
+.special-instructions-textarea {
     width: 100%;
     background-color: #f2f2f2;
     border: 2px solid transparent;
@@ -61,19 +61,19 @@
     font-family: inherit;
 }
 
-.si-textarea:focus {
+.special-instructions-textarea:focus {
     border-color: #ffa366;
     background-color: #ffffff;
 }
 
-.si-allergen-group {
+.special-instructions-allergen-group {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     max-width: 400px;
 }
 
-.si-allergen-btn {
+.special-allergen-btn {
     background-color: #ececec;
     color: #555555;
     border: none;
@@ -89,13 +89,13 @@
     box-shadow: none;
 }
 
-.si-allergen-btn.selected {
+.special-allergen-btn.selected {
     background-color: #ffa366;
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(255, 163, 102, 0.25);
 }
 
-.si-allergen-icon {
+.special-allergen-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -108,18 +108,18 @@
     font-weight: bold;
 }
 
-.si-allergen-icon.selected {
+.special-allergen-icon.selected {
     background-color: #ffffff;
     color: #ffa366;
 }
 
-.si-right {
+.special-instructions-right {
     flex: 1 1 320px;
     display: flex;
     flex-direction: column;
 }
 
-.si-summary-card {
+.special-instructions-summary-card {
     background-color: #f2f2f2;
     border-radius: 16px;
     padding: 30px 24px;
@@ -130,7 +130,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-.si-summary-heading {
+.special-instructions-summary-heading {
     font-size: 24px;
     font-weight: 800;
     color: #111111;
@@ -139,38 +139,38 @@
     border-bottom: 2px solid #222222;
 }
 
-.si-summary-item {
+.special-instructions-summary-item {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.si-summary-item-row {
+.special-instructions-summary-item-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.si-summary-item-name {
+.special-instructions-summary-item-name {
     font-size: 18px;
     font-weight: 800;
     color: #222222;
 }
 
-.si-summary-item-price {
+.special-instructions-summary-item-price {
     font-size: 18px;
     font-weight: 800;
     color: #f5821f;
 }
 
-.si-summary-item-qty {
+.special-instructions-summary-item-qty {
     font-size: 14px;
     color: #888888;
     font-weight: bold;
 }
 
-.si-total-row {
+.special-instructions-total-row {
     border-top: 1px solid #dddddd;
     padding-top: 20px;
     margin-bottom: 20px;
@@ -179,19 +179,19 @@
     align-items: center;
 }
 
-.si-total-label {
+.special-instructions-total-label {
     font-size: 18px;
     font-weight: 800;
     color: #111111;
 }
 
-.si-total-price {
+.special-instructions-total-price {
     font-size: 20px;
     font-weight: 800;
     color: #f5821f;
 }
 
-.si-confirm-btn {
+.special-instructions-confirm-btn {
     width: 100%;
     background-color: #f5821f;
     color: #ffffff;
@@ -205,7 +205,7 @@
     box-shadow: 0 4px 10px rgba(245, 130, 31, 0.35);
 }
 
-.si-confirm-btn:hover {
+.special-instructions-confirm-btn:hover {
     background-color: #e07216;
     transform: translateY(-1px);
 }

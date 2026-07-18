@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/OrderHistory.css';
 
 export default function OrderHistory() {
@@ -19,19 +19,19 @@ export default function OrderHistory() {
     };
 
     return (
-        <div className="oh-container">
-            <div className="oh-header">
+        <main className="history-container">
+            <header className="history-header">
                 <h1>Order History</h1>
                 <p>View all your previous and pending orders</p>
-            </div>
+            </header>
 
             {orders.length === 0 ? (
-                <div className="oh-empty-state">
+                <div className="history-empty-state">
                     <p>No completed orders found. Once you pay for your pending orders, they will appear here!</p>
                 </div>
             ) : (
-                <div className="oh-table-wrapper">
-                    <table className="oh-table">
+                <div className="history-table-wrapper">
+                    <table className="history-table">
                         <thead>
                             <tr>
                                 <th>Order ID</th>
@@ -45,15 +45,15 @@ export default function OrderHistory() {
                         <tbody>
                             {orders.map((order) => (
                                 <tr key={order.id}>
-                                    <td className="oh-order-id-col">{order.id}</td>
+                                    <td className="history-order-id-col">{order.id}</td>
                                     <td>{formatFoodNames(order.items)}</td>
-                                    <td>{order.date.split(' ')[0]}</td> {/* Date part rani */}
-                                    <td className="oh-amount-col">₱{order.total.toFixed(2)}</td>
+                                    <td>{order.date.split(' ')[0]}</td> {/* Only show date part */}
+                                    <td className="history-amount-col">₱{order.total.toFixed(2)}</td>
                                     <td>
-                                        <span className="oh-status-badge">Completed</span>
+                                        <span className="history-status-badge">Completed</span>
                                     </td>
                                     <td style={{ textAlign: 'center' }}>
-                                        <button className="oh-view-btn" onClick={() => setSelectedOrder(order)}>
+                                        <button className="history-view-btn" onClick={() => setSelectedOrder(order)}>
                                             View
                                         </button>
                                     </td>
@@ -66,14 +66,14 @@ export default function OrderHistory() {
 
             {/* Receipt Modal Overlay */}
             {selectedOrder && (
-                <div className="oh-modal-overlay" onClick={() => setSelectedOrder(null)}>
-                    <div className="oh-modal-card" onClick={(e) => e.stopPropagation()}>
-                        <div className="oh-modal-header">
+                <div className="history-modal-overlay" onClick={() => setSelectedOrder(null)}>
+                    <div className="history-modal-card" onClick={(e) => e.stopPropagation()}>
+                        <div className="history-modal-header">
                             <h2>ORDER RECEIPT</h2>
-                            <button className="oh-modal-close" onClick={() => setSelectedOrder(null)}>×</button>
+                            <button className="history-modal-close" onClick={() => setSelectedOrder(null)}>×</button>
                         </div>
 
-                        <div className="oh-receipt-body">
+                        <div className="history-receipt-body">
                             <div className="receipt-header-details">
                                 <p><strong>Order ID:</strong> {selectedOrder.id}</p>
                                 <p><strong>Date & Time:</strong> {selectedOrder.date}</p>
@@ -84,8 +84,8 @@ export default function OrderHistory() {
 
                             <div className="receipt-items-list">
                                 <h3>Items Ordered</h3>
-                                {selectedOrder.items.map((item, idx) => (
-                                    <div key={idx} className="receipt-item-row">
+                                {selectedOrder.items.map((item, index) => (
+                                    <div key={index} className="receipt-item-row">
                                         <div className="receipt-item-left">
                                             <span className="receipt-item-qty">{item.quantity}x</span>
                                             <span className="receipt-item-name">{item.food.name}</span>
@@ -104,8 +104,8 @@ export default function OrderHistory() {
                                     <div className="receipt-notes-section">
                                         <h3>Special Requests</h3>
                                         <ul>
-                                            {selectedOrder.items.filter(item => item.comment).map((item, idx) => (
-                                                <li key={idx}>
+                                            {selectedOrder.items.filter(item => item.comment).map((item, index) => (
+                                                <li key={index}>
                                                     <strong>{item.food.name}:</strong> "{item.comment}"
                                                 </li>
                                             ))}
@@ -131,6 +131,6 @@ export default function OrderHistory() {
                     </div>
                 </div>
             )}
-        </div>
+        </main>
     );
 }

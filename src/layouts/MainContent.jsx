@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MenuPage from '../pages/MenuPage';
 import SpecialInstructions from '../pages/SpecialInstructions';
 import ProfileSettings from '../pages/ProfileSettings';

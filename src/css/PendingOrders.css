@@ -4,13 +4,13 @@
     color: #333;
 }
 
-.po-title {
+.pending-title {
     font-size: 2.2rem;
     font-weight: 800;
     margin-bottom: 30px;
 }
 
-.po-empty-state {
+.pending-empty-state {
     text-align: center;
     padding: 60px 20px;
     background: #fff;
@@ -18,13 +18,13 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.po-empty-state p {
+.pending-empty-state p {
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 20px;
 }
 
-.po-order-btn {
+.pending-order-btn {
     background-color: #f5821f;
     color: white;
     border: none;
@@ -37,19 +37,19 @@
     transition: transform 0.2s;
 }
 
-.po-order-btn:hover {
+.pending-order-btn:hover {
     transform: translateY(-2px);
 }
 
-/* po List */
-.po-list {
+/* pending List */
+.pending-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
     max-width: 800px;
 }
 
-.po-card {
+.pending-card {
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -60,7 +60,7 @@
     border-left: 6px solid #f5821f;
 }
 
-.po-card-header {
+.pending-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,19 +68,19 @@
     padding-bottom: 12px;
 }
 
-.po-order-id {
+.pending-order-id {
     font-weight: 800;
     font-size: 1.1rem;
     color: #1a1a1a;
     margin-right: 10px;
 }
 
-.po-order-date {
+.pending-order-date {
     font-size: 0.85rem;
     color: #888;
 }
 
-.po-status-badge {
+.pending-status-badge {
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -88,81 +88,81 @@
     text-transform: uppercase;
 }
 
-.po-status-badge.pending-payment {
+.pending-status-badge.pending-payment {
     background-color: #fef3c7;
     color: #d97706;
 }
 
-.po-status-badge.paid-&-preparing {
+.pending-status-badge.paid-&-preparing {
     background-color: #dcfce7;
     color: #15803d;
 }
 
 /* Items section */
-.po-items-section {
+.pending-items-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.po-item-row {
+.pending-item-row {
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
 }
 
-.po-item-left {
+.pending-item-left {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.po-item-qty {
+.pending-item-qty {
     font-weight: 700;
     color: #f5821f;
 }
 
-.po-item-name {
+.pending-item-name {
     color: #1a1a1a;
     font-weight: 500;
 }
 
-.po-item-allergens {
+.pending-item-allergens {
     font-size: 0.85rem;
     color: #d9534f;
 }
 
-.po-item-price {
+.pending-item-price {
     font-weight: 600;
     color: #444;
 }
 
 /* Notes section */
-.po-notes-section {
+.pending-notes-section {
     background: #faf4f0;
     padding: 10px 14px;
     border-radius: 8px;
     font-size: 0.9rem;
 }
 
-.po-notes-section strong {
+.pending-notes-section strong {
     color: #7a5a4f;
     display: block;
     margin-bottom: 4px;
 }
 
-.po-notes-section ul {
+.pending-notes-section ul {
     margin: 0;
     padding-left: 20px;
 }
 
-.po-notes-section li {
+.pending-notes-section li {
     margin-bottom: 2px;
     color: #555;
 }
 
 /* Card Footer */
-.po-card-footer {
+.pending-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -171,23 +171,23 @@
     margin-top: 5px;
 }
 
-.po-total {
+.pending-total {
     display: flex;
     flex-direction: column;
 }
 
-.po-total span:first-child {
+.pending-total span:first-child {
     font-size: 0.85rem;
     color: #666;
 }
 
-.po-total-amount {
+.pending-total-amount {
     font-size: 1.3rem;
     font-weight: 800;
     color: #f5821f;
 }
 
-.po-pay-btn {
+.pending-pay-btn {
     background-color: #15803d;
     color: white;
     border: none;
@@ -200,7 +200,7 @@
     transition: transform 0.2s, background-color 0.2s;
 }
 
-.po-pay-btn:hover {
+.pending-pay-btn:hover {
     transform: translateY(-1px);
     background-color: #166534;
 }
