@@ -9,13 +9,13 @@ import OrderHistory from '../pages/OrderHistory';
 
 export default function MainContent() {
     return (
-        <div style={{
-            backgroundColor: '#ffffff',
-            flex: 1,
-            padding: '40px',
-            minHeight: 'calc(100vh - 74px)',
-            boxSizing: 'border-box'
-        }}>
+            <div style={{
+                backgroundColor: '#ffffff',
+                flex: 1,
+                padding: '20px',
+                minHeight: 'calc(100vh - 74px)',
+                boxSizing: 'border-box'
+            }}>
             <Routes> {/* <Route path='/' element={<Navigate to='/dashboard' replace />} /> */}
                 <Route path='/orders' element={<OrderHistory />} />
                 <Route path='/special-instructions' element={<SpecialInstructions />} />

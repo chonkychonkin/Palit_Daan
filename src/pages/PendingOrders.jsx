@@ -12,24 +12,66 @@ export default function PendingOrders() {
     }, []);
 
     const simulatePayment = (orderId) => {
-        // Diri gi move and mga order padung sa order_history
         const pending = JSON.parse(localStorage.getItem('pending_orders') || '[]');
         const targetOrder = pending.find(o => o.id === orderId);
 
         if (targetOrder) {
-            // Update status to Paid
-            targetOrder.status = 'Paid & Preparing';
-            
+            // Trigger backend Payment API
+            const paymentPayload = {
+                orderId: targetOrder.backendId || 1,
+                amount: targetOrder.total,
+                paymentMethod: 'OTC_CASH'
+            };
+
+            fetch('http://localhost:8080/payments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(paymentPayload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Payment successfully logged in MySQL database:", data);
+            })
+            .catch(err => {
+                console.warn("Payment API connection failed (offline mode):", err);
+            });
+
             // Save updated pending list
-            const updatedPending = pending.map(o => o.id === orderId ? targetOrder : o);
+            const updatedPending = pending.map(order => order.id === orderId ? targetOrder : order);
             setOrders(updatedPending);
             localStorage.setItem('pending_orders', JSON.stringify(updatedPending));
+        }
+    };
 
-            // Optional: Move to order_history
+    const completeOrder = (orderId) => {
+        const pending = JSON.parse(localStorage.getItem('pending_orders') || '[]');
+        const targetOrder = pending.find(order => order.id === orderId);
+
+        if (targetOrder) {
+            // Trigger backend Order Status update
+            if (targetOrder.backendId) {
+                fetch(`http://localhost:8080/orders/${targetOrder.backendId}/status?status=COMPLETED`, {
+                    method: 'PUT'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("Order status updated to COMPLETED in MySQL database:", data);
+                })
+                .catch(err => {
+                    console.warn("Could not sync complete status with backend database:", err);
+                });
+            }
+
+            // Move to order_history
             const history = JSON.parse(localStorage.getItem('order_history') || '[]');
             const historyOrder = { ...targetOrder, status: 'Completed', completedDate: new Date().toLocaleDateString() };
             history.unshift(historyOrder);
             localStorage.setItem('order_history', JSON.stringify(history));
+
+            // Remove from active pending orders
+            const updatedPending = pending.filter(order => order.id !== orderId);
+            setOrders(updatedPending);
+            localStorage.setItem('pending_orders', JSON.stringify(updatedPending));
         }
     };
 
@@ -93,8 +135,14 @@ export default function PendingOrders() {
                                 </div>
                                 
                                 {order.status === 'Pending Payment' && (
-                                    <button className="po-pay-btn" onClick={() => simulatePayment(order.id)}>
-                                        Simulate OTC Payment ₱
+                                    <button className="pending-pay-btn" onClick={() => simulatePayment(order.id)}>
+                                        Pay at Counter
+                                    </button>
+                                )}
+
+                                {order.status === 'Paid & Preparing' && (
+                                    <button className="pending-pay-btn complete-btn" onClick={() => completeOrder(order.id)}>
+                                        Claim Food
                                     </button>
                                 )}
                             </div>
