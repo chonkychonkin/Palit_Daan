@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MenuPage from '../pages/MenuPage';
 import SpecialInstructions from '../pages/SpecialInstructions';
 import ProfileSettings from '../pages/ProfileSettings';
@@ -6,6 +6,7 @@ import Dashboard from '../pages/Dashboard';
 import Cart from '../pages/Cart';
 import PendingOrders from '../pages/PendingOrders';
 import OrderHistory from '../pages/OrderHistory';
+import OrderConfirmation from '../pages/OrderConfirmation';
 
 export default function MainContent() {
     return (
@@ -18,6 +19,7 @@ export default function MainContent() {
             }}>
             <Routes> {/* <Route path='/' element={<Navigate to='/dashboard' replace />} /> */}
                 <Route path='/orders' element={<OrderHistory />} />
+                <Route path="/confirmation" element={<OrderConfirmation />} />
                 <Route path='/special-instructions' element={<SpecialInstructions />} />
                 <Route path='/menu' element={<MenuPage />} />
                 <Route path='/profile' element={<ProfileSettings />} />

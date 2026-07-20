@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/PendingOrders.css';
 
@@ -13,7 +13,7 @@ export default function PendingOrders() {
 
     const simulatePayment = (orderId) => {
         const pending = JSON.parse(localStorage.getItem('pending_orders') || '[]');
-        const targetOrder = pending.find(o => o.id === orderId);
+        const targetOrder = pending.find(order => order.id === orderId);
 
         if (targetOrder) {
             // Trigger backend Payment API
@@ -77,50 +77,50 @@ export default function PendingOrders() {
 
     return (
         <div className="pending-orders-container">
-            <h1 className="po-title">Active & Pending Orders</h1>
+            <h1 className="pending-title">Active & Pending Orders</h1>
 
             {orders.length === 0 ? (
-                <div className="po-empty-state">
+                <div className="pending-empty-state">
                     <p>No active orders at the moment. Hungry?</p>
-                    <button className="po-order-btn" onClick={() => navigate('/menu')}>
+                    <button className="pending-order-btn" onClick={() => navigate('/menu')}>
                         Order Now
                     </button>
                 </div>
             ) : (
-                <div className="po-list">
+                <div className="pending-list">
                     {orders.map((order) => (
-                        <div key={order.id} className="po-card">
-                            <div className="po-card-header">
+                        <div key={order.id} className="pending-card">
+                            <div className="pending-card-header">
                                 <div>
-                                    <span className="po-order-id">{order.id}</span>
-                                    <span className="po-order-date">{order.date}</span>
+                                    <span className="pending-order-id">{order.id}</span>
+                                    <span className="pending-order-date">{order.date}</span>
                                 </div>
-                                <span className={`po-status-badge ${order.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                                <span className={`pending-status-badge ${order.status.toLowerCase().replace(/\s+/g, '-')}`}>
                                     {order.status}
                                 </span>
                             </div>
 
-                            <div className="po-items-section">
-                                {order.items.map((item, idx) => (
-                                    <div key={idx} className="po-item-row">
-                                        <div className="po-item-left">
-                                            <span className="po-item-qty">{item.quantity}x</span>
-                                            <span className="po-item-name">{item.food.name}</span>
+                            <div className="pending-items-section">
+                                {order.items.map((item, index) => (
+                                    <div key={index} className="pending-item-row">
+                                        <div className="pending-item-left">
+                                            <span className="pending-item-qty">{item.quantity}x</span>
+                                            <span className="pending-item-name">{item.food.name}</span>
                                             {item.allergens.length > 0 && (
-                                                <span className="po-item-allergens">({item.allergens.join(', ')})</span>
+                                                <span className="pending-item-allergens">({item.allergens.join(', ')})</span>
                                             )}
                                         </div>
-                                        <span className="po-item-price">₱{(item.food.price * item.quantity).toFixed(2)}</span>
+                                        <span className="pending-item-price">₱{(item.food.price * item.quantity).toFixed(2)}</span>
                                     </div>
                                 ))}
                             </div>
 
                             {order.items.some(item => item.comment) && (
-                                <div className="po-notes-section">
+                                <div className="pending-notes-section">
                                     <strong>Special Instructions:</strong>
                                     <ul>
-                                        {order.items.filter(item => item.comment).map((item, idx) => (
-                                            <li key={idx}>
+                                        {order.items.filter(item => item.comment).map((item, index) => (
+                                            <li key={index}>
                                                 <em>{item.food.name}:</em> "{item.comment}"
                                             </li>
                                         ))}
@@ -128,10 +128,10 @@ export default function PendingOrders() {
                                 </div>
                             )}
 
-                            <div className="po-card-footer">
-                                <div className="po-total">
+                            <div className="pending-card-footer">
+                                <div className="pending-total">
                                     <span>Total Amount:</span>
-                                    <span className="po-total-amount">₱{order.total.toFixed(2)}</span>
+                                    <span className="pending-total-amount">₱{order.total.toFixed(2)}</span>
                                 </div>
                                 
                                 {order.status === 'Pending Payment' && (

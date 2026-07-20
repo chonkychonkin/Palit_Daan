@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Cart.css';
 
@@ -31,7 +31,7 @@ export default function Cart() {
     };
 
     const calculateTotal = () => {
-        return cartItems.reduce((sum, item) => sum + (item.food.price * item.quantity), 0);
+        return cartItems.reduce((runningTotal, item) => runningTotal + (item.food.price * item.quantity), 0);
     };
 
     const handlePlaceOrder = () => {
