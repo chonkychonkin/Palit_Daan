@@ -247,6 +247,40 @@
     color: white;
 }
 
+/* Payment Selector UI */
+.payment-selector {
+    margin-top: 5px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-selector h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #444;
+}
+
+.payment-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: #f5821f;
+    cursor: pointer;
+}
+
 @media (max-width: 900px) {
     .cart-layout {
         flex-direction: column;

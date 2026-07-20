@@ -19,9 +19,9 @@ export default function PalitDaan() {
             backgroundColor: '#ffa07a' 
         }}>
             <Navbar toggleSidebar={toggleSidebar} />
-            <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+            <div style={{ display: 'flex', flex: 1 }}>
                 {isSidebarOpen && <Sidebar />}
-                <div style={{ flex: 1, overflowY: 'auto' }}>
+                <div style={{ flex: 1 }}>
                     <MainContent />
                 </div>
             </div>

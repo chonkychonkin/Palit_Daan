@@ -14,8 +14,7 @@ export default function MainContent() {
                 backgroundColor: '#ffffff',
                 flex: 1,
                 padding: '20px',
-                height: 'calc(100vh - 74px)',
-                overflow: 'hidden',
+                minHeight: 'calc(100vh - 74px)',
                 boxSizing: 'border-box'
             }}>
             <Routes> {/* <Route path='/' element={<Navigate to='/dashboard' replace />} /> */}

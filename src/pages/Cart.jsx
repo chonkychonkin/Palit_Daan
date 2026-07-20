@@ -5,6 +5,7 @@ import '../css/Cart.css';
 export default function Cart() {
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
+    const [paymentMethod, setPaymentMethod] = useState('CASH');
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -36,35 +37,114 @@ export default function Cart() {
     const handlePlaceOrder = () => {
         if (cartItems.length === 0) return;
 
-        // Get sequential order counter
-        const nextOrderNumber = parseInt(localStorage.getItem('order_counter') || '0', 10) + 1;
-        localStorage.setItem('order_counter', nextOrderNumber.toString());
+        // Map frontend structure to Spring Boot Order entity fields
+        const orderItemNames = cartItems.map(item => `${item.food.name} x${item.quantity}`).join(', ');
+        
+        // Combine special instructions/allergens
+        const instructions = cartItems.map(item => {
+            const notes = item.comment ? `Comment: "${item.comment}"` : '';
+            const allergensList = item.allergens.length > 0 ? `Allergens: [${item.allergens.join(', ')}]` : '';
+            return [notes, allergensList].filter(Boolean).join(' | ');
+        }).filter(Boolean).join(' ; ');
 
-        // Create new order package
-        const newOrder = {
-            id: '#' + nextOrderNumber.toString().padStart(4, '0'),
-            date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            customer: 'Matthew Pasaol',
-            paymentMethod: 'Cash on Delivery',
-            items: cartItems,
-            total: calculateTotal(),
-            status: 'Pending Payment'
+        // Status is PENDING. If GCASH, the payment API will automatically advance it to Paid.
+        const orderData = {
+            itemName: orderItemNames,
+            price: calculateTotal(),
+            status: 'PENDING',
+            specialInstructions: instructions
         };
 
-        // Save to pending_orders
-        const pendingOrders = JSON.parse(localStorage.getItem('pending_orders') || '[]');
-        pendingOrders.unshift(newOrder); // Add to top of list
-        localStorage.setItem('pending_orders', JSON.stringify(pendingOrders));
+        fetch('http://localhost:8080/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Order creation failed on backend");
+            return res.json();
+        })
+        .then(savedOrder => {
+            // Keep local storage order count working
+            const nextOrderNumber = parseInt(localStorage.getItem('order_counter') || '0', 10) + 1;
+            localStorage.setItem('order_counter', nextOrderNumber.toString());
 
-        // Save the latest order so the confirmation page can display it
-        localStorage.setItem('latest_order', JSON.stringify(newOrder));
+            const isGCash = paymentMethod === 'GCASH';
+            const localOrder = {
+                id: '#' + nextOrderNumber,
+                backendId: savedOrder.id,
+                date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                items: cartItems,
+                total: calculateTotal(),
+                paymentMethod: isGCash ? 'GCash (Online)' : 'Cash at Counter',
+                status: isGCash ? 'Paid & Preparing' : 'Pending Payment'
+            };
 
-        // Clear cart
-        localStorage.removeItem('cart');
-        setCartItems([]);
+            const pendingOrders = JSON.parse(localStorage.getItem('pending_orders') || '[]');
+            pendingOrders.unshift(localOrder);
+            localStorage.setItem('pending_orders', JSON.stringify(pendingOrders));
 
-        // Go to the confirmation page
-        navigate('/confirmation');
+            // Save latest order for the confirmation page
+            localStorage.setItem('latest_order', JSON.stringify(localOrder));
+
+            // If GCash, trigger the Payments API immediately to update backend
+            if (isGCash) {
+                const paymentPayload = {
+                    orderId: savedOrder.id,
+                    amount: calculateTotal(),
+                    paymentMethod: 'GCASH',
+                    paymentStatus: 'COMPLETED'
+                };
+
+                fetch('http://localhost:8080/payments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(paymentPayload)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("GCash payment successfully processed on backend:", data);
+                })
+                .catch(err => {
+                    console.warn("Could not sync GCash payment with backend database:", err);
+                });
+            }
+
+            // Clear cart
+            localStorage.removeItem('cart');
+            setCartItems([]);
+
+            // Redirect to confirmation page
+            navigate('/confirmation');
+        })
+        .catch(err => {
+            console.warn("Using offline cart fallback due to error:", err);
+            
+            // Fallback: Offline mode (Save to local storage only)
+            const nextOrderNumber = parseInt(localStorage.getItem('order_counter') || '0', 10) + 1;
+            localStorage.setItem('order_counter', nextOrderNumber.toString());
+
+            const localOrder = {
+                id: '#' + nextOrderNumber,
+                date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                items: cartItems,
+                total: calculateTotal(),
+                status: 'Pending Payment'
+            };
+
+            const pendingOrders = JSON.parse(localStorage.getItem('pending_orders') || '[]');
+            pendingOrders.unshift(localOrder);
+            localStorage.setItem('pending_orders', JSON.stringify(pendingOrders));
+
+            // Save latest order for the confirmation page
+            localStorage.setItem('latest_order', JSON.stringify(localOrder));
+
+            localStorage.removeItem('cart');
+            setCartItems([]);
+            navigate('/confirmation');
+        });
     };
 
     return (
@@ -125,6 +205,32 @@ export default function Cart() {
                                 <span>Items Subtotal:</span>
                                 <span>₱{calculateTotal().toFixed(2)}</span>
                             </div>
+
+                            {/* Payment Method Selection */}
+                            <div className="payment-selector">
+                                <h3>Payment Method</h3>
+                                <label className="payment-option">
+                                    <input 
+                                        type="radio" 
+                                        name="paymentMethod" 
+                                        value="CASH" 
+                                        checked={paymentMethod === 'CASH'}
+                                        onChange={() => setPaymentMethod('CASH')}
+                                    />
+                                    Cash at Counter
+                                </label>
+                                <label className="payment-option">
+                                    <input 
+                                        type="radio" 
+                                        name="paymentMethod" 
+                                        value="GCASH" 
+                                        checked={paymentMethod === 'GCASH'}
+                                        onChange={() => setPaymentMethod('GCASH')}
+                                    />
+                                    GCash (Online)
+                                </label>
+                            </div>
+
                             <div className="summary-row total-row">
                                 <span>Total:</span>
                                 <span>₱{calculateTotal().toFixed(2)}</span>
