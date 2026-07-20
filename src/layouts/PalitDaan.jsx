@@ -1,6 +1,6 @@
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import MainContent from '../layouts/MainContent';
+import MainContent from './MainContent';
 import { useState } from 'react';
 
 export default function PalitDaan() {   
@@ -14,7 +14,7 @@ export default function PalitDaan() {
         <div style={{
             display: 'flex',
             flexDirection: 'column',
-            minHeight: '100vh',
+            height: '100vh',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             backgroundColor: '#ffa07a' 
         }}>

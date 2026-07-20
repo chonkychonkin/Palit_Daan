@@ -6,18 +6,21 @@ import Dashboard from '../pages/Dashboard';
 import Cart from '../pages/Cart';
 import PendingOrders from '../pages/PendingOrders';
 import OrderHistory from '../pages/OrderHistory';
+import OrderConfirmation from '../pages/OrderConfirmation';
 
 export default function MainContent() {
     return (
-        <div style={{
-            backgroundColor: '#ffffff',
-            flex: 1,
-            padding: '40px',
-            minHeight: 'calc(100vh - 74px)',
-            boxSizing: 'border-box'
-        }}>
+            <div style={{
+                backgroundColor: '#ffffff',
+                flex: 1,
+                padding: '20px',
+                height: 'calc(100vh - 74px)',
+                overflow: 'hidden',
+                boxSizing: 'border-box'
+            }}>
             <Routes> {/* <Route path='/' element={<Navigate to='/dashboard' replace />} /> */}
                 <Route path='/orders' element={<OrderHistory />} />
+                <Route path="/confirmation" element={<OrderConfirmation />} />
                 <Route path='/special-instructions' element={<SpecialInstructions />} />
                 <Route path='/menu' element={<MenuPage />} />
                 <Route path='/profile' element={<ProfileSettings />} />

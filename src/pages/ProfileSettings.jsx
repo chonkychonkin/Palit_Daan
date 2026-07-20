@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const initialProfile = {
   name: 'Juan Dela Cruz',
@@ -149,16 +149,23 @@ export default function ProfileSettings() {
 }
 
 const pageWrapperStyle = {
-  minHeight: 'calc(100vh - 74px)',
-  width: '100%',
-  padding: '30px 28px',
-  background: 'linear-gradient(180deg, #f8f1ec 0%, #ffeedf 50%, #ffe4cd 100%)'
+    width: '100%',
+    height: '100%',
+    padding: '10px',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column'
 };
 
 const contentAreaStyle = {
   width: '100%',
   maxWidth: '1280px',
-  margin: '0 auto'
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  overflow: 'hidden'
 };
 
 const heroStyle = {
@@ -166,13 +173,14 @@ const heroStyle = {
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   gap: '24px',
-  marginBottom: '30px',
-  flexWrap: 'wrap'
+  marginBottom: '15px',
+  flexWrap: 'wrap',
+  flexShrink: 0
 };
 
 const eyebrowStyle = {
   margin: 0,
-  fontSize: '14px',
+  fontSize: '12px',
   fontWeight: 700,
   letterSpacing: '0.18em',
   textTransform: 'uppercase',
@@ -180,8 +188,8 @@ const eyebrowStyle = {
 };
 
 const heroTitleStyle = {
-  margin: '10px 0 12px',
-  fontSize: '42px',
+  margin: '6px 0 8px',
+  fontSize: '32px',
   lineHeight: '1.05',
   fontWeight: 800,
   color: '#2b2b2b'
@@ -190,9 +198,9 @@ const heroTitleStyle = {
 const heroCopyStyle = {
   margin: 0,
   maxWidth: '720px',
-  fontSize: '17px',
+  fontSize: '14px',
   color: '#51423a',
-  lineHeight: '1.75'
+  lineHeight: '1.5'
 };
 
 const heroActionsStyle = {
@@ -206,11 +214,12 @@ const primaryButtonStyle = {
   color: '#ffffff',
   border: 'none',
   borderRadius: '999px',
-  padding: '14px 28px',
-  fontSize: '15px',
+  padding: '12px 24px',
+  fontSize: '14px',
   fontWeight: 700,
   cursor: 'pointer',
   boxShadow: '0 12px 30px rgba(255,106,26,0.24)',
+  flexShrink: 0
 };
 
 const ghostButtonStyle = {
@@ -218,56 +227,64 @@ const ghostButtonStyle = {
   color: '#4a3e35',
   border: '1px solid rgba(74,62,53,0.16)',
   borderRadius: '999px',
-  padding: '14px 26px',
-  fontSize: '15px',
+  padding: '12px 22px',
+  fontSize: '14px',
   fontWeight: 700,
-  cursor: 'pointer'
+  cursor: 'pointer',
+  flexShrink: 0
 };
 
 const gridStyle = {
   display: 'grid',
-  gridTemplateColumns: '360px 1fr',
-  gap: '30px'
+  gridTemplateColumns: '260px 1fr',
+  gap: '16px',
+  flex: 1,
+  minHeight: 0,
+  overflow: 'hidden'
 };
 
 const summaryCardStyle = {
   background: '#ffffff',
   borderRadius: '28px',
-  padding: '32px',
+  padding: '24px',
   boxShadow: '0 22px 55px rgba(16, 24, 40, 0.08)',
   display: 'flex',
   flexDirection: 'column',
-  gap: '24px'
+  gap: '20px',
+  overflowY: 'auto',
+  minHeight: 0,
+  height: '100%'
 };
 
 const profileBadgeStyle = {
-  width: '100px',
-  height: '100px',
+  width: '80px',
+  height: '80px',
   borderRadius: '50%',
   background: 'linear-gradient(135deg, #ff6a1a 0%, #ffb86c 100%)',
   display: 'grid',
   placeItems: 'center',
-  boxShadow: '0 16px 30px rgba(255,106,26,0.2)'
+  boxShadow: '0 16px 30px rgba(255,106,26,0.2)',
+  flexShrink: 0
 };
 
 const profileInitialStyle = {
   color: '#ffffff',
-  fontSize: '34px',
+  fontSize: '28px',
   fontWeight: 800
 };
 
 const summaryLabelStyle = {
-  margin: '0 0 4px',
+  margin: '0 0 2px',
   color: '#8f7562',
   textTransform: 'uppercase',
   letterSpacing: '0.15em',
-  fontSize: '12px',
+  fontSize: '10px',
   fontWeight: 700
 };
 
 const summaryTitleStyle = {
-  margin: '0 0 8px',
-  fontSize: '28px',
+  margin: '0 0 4px',
+  fontSize: '22px',
   fontWeight: 800,
   color: '#1f1d1b'
 };
@@ -275,26 +292,26 @@ const summaryTitleStyle = {
 const summaryDetailStyle = {
   margin: 0,
   color: '#6a5c50',
-  fontSize: '15px',
-  lineHeight: '1.75'
+  fontSize: '13px',
+  lineHeight: '1.5'
 };
 
 const summaryBlocksStyle = {
   display: 'grid',
-  gap: '16px'
+  gap: '12px'
 };
 
 const summaryBlockStyle = {
   background: '#f8f1ec',
   borderRadius: '22px',
-  padding: '18px 20px'
+  padding: '14px 16px'
 };
 
 const summaryBlockTitle = {
   display: 'block',
-  marginBottom: '6px',
+  marginBottom: '4px',
   color: '#7e675a',
-  fontSize: '13px',
+  fontSize: '11px',
   fontWeight: 700,
   textTransform: 'uppercase',
   letterSpacing: '0.14em'
@@ -302,41 +319,46 @@ const summaryBlockTitle = {
 
 const summaryBlockValue = {
   color: '#2b2420',
-  fontSize: '18px',
+  fontSize: '16px',
   fontWeight: 700
 };
 
 const infoListStyle = {
   display: 'grid',
-  gap: '16px'
+  gap: '12px'
 };
 
 const infoLabelStyle = {
   margin: 0,
   color: '#8f7562',
-  fontSize: '13px',
+  fontSize: '11px',
   fontWeight: 700,
   textTransform: 'uppercase',
   letterSpacing: '0.14em'
 };
 
 const infoTextStyle = {
-  margin: '6px 0 0',
+  margin: '4px 0 0',
   color: '#4d4238',
-  fontSize: '15px',
-  lineHeight: '1.7'
+  fontSize: '13px',
+  lineHeight: '1.5'
 };
 
 const formCardStyle = {
   background: '#ffffff',
   borderRadius: '28px',
-  padding: '32px',
-  boxShadow: '0 22px 55px rgba(16, 24, 40, 0.08)'
+  padding: '18px',
+  boxShadow: '0 22px 55px rgba(16, 24, 40, 0.08)',
+  display: 'flex',
+  flexDirection: 'column',
+  overflowY: 'auto',
+  minHeight: 0,
+  height: '100%'
 };
 
 const sectionStyle = {
   display: 'grid',
-  gap: '28px'
+  gap: '12px'
 };
 
 const sectionHeaderStyle = {
@@ -348,59 +370,59 @@ const sectionHeaderStyle = {
 
 const sectionTitleStyle = {
   margin: 0,
-  fontSize: '24px',
+  fontSize: '20px',
   fontWeight: 800,
   color: '#2b2b2b'
 };
 
 const sectionSubtitleStyle = {
-  margin: '10px 0 0',
-  fontSize: '15px',
+  margin: '6px 0 0',
+  fontSize: '13px',
   color: '#6a5c50',
-  lineHeight: '1.7'
+  lineHeight: '1.5'
 };
 
 const fieldGridStyle = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  gap: '20px'
+  gap: '12px'
 };
 
 const fieldWrapperStyle = {
   display: 'flex',
   flexDirection: 'column',
-  gap: '10px'
+  gap: '8px'
 };
 
 const fieldWrapperStyleFull = {
   gridColumn: '1 / -1',
   display: 'flex',
   flexDirection: 'column',
-  gap: '10px'
+  gap: '8px'
 };
 
 const fieldLabelStyle = {
   margin: 0,
   color: '#4a4037',
-  fontSize: '14px',
+  fontSize: '12px',
   fontWeight: 700
 };
 
 const inputStyle = {
   width: '100%',
-  padding: '14px 16px',
+  padding: '12px 14px',
   borderRadius: '18px',
   border: '1px solid #e6d4c5',
   background: '#fcfaf7',
   color: '#3f332d',
-  fontSize: '15px',
+  fontSize: '14px',
   outline: 'none',
   boxSizing: 'border-box'
 };
 
 const textareaStyle = {
   width: '100%',
-  minHeight: '150px',
+  height: '60px',
   padding: '14px 16px',
   borderRadius: '18px',
   border: '1px solid #e6d4c5',
@@ -409,5 +431,5 @@ const textareaStyle = {
   fontSize: '15px',
   outline: 'none',
   boxSizing: 'border-box',
-  resize: 'vertical'
+  resize: 'none'
 };
