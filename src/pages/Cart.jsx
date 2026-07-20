@@ -42,8 +42,10 @@ export default function Cart() {
 
         // Create new order package
         const newOrder = {
-            id: '#' + nextOrderNumber,
+            id: '#' + nextOrderNumber.toString().padStart(4, '0'),
             date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            customer: 'Matthew Pasaol',
+            paymentMethod: 'Cash on Delivery',
             items: cartItems,
             total: calculateTotal(),
             status: 'Pending Payment'
@@ -54,12 +56,15 @@ export default function Cart() {
         pendingOrders.unshift(newOrder); // Add to top of list
         localStorage.setItem('pending_orders', JSON.stringify(pendingOrders));
 
+        // Save the latest order so the confirmation page can display it
+        localStorage.setItem('latest_order', JSON.stringify(newOrder));
+
         // Clear cart
         localStorage.removeItem('cart');
         setCartItems([]);
 
-        // Redirect to pending orders
-        navigate('/pendingorders');
+        // Go to the confirmation page
+        navigate('/confirmation');
     };
 
     return (
